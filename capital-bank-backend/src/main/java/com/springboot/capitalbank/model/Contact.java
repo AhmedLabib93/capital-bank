@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
 
@@ -31,6 +32,8 @@ public class Contact {
 
     private String subject;
 
+    @CreationTimestamp
+    @Column(length = 2000)
     private String message;
 
     @Column(name = "create_dt")

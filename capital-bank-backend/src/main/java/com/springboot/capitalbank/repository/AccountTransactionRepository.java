@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AccountTransactionRepository  extends JpaRepository<AccountTransactions, Long> {
+public interface AccountTransactionRepository  extends JpaRepository<AccountTransactions, String> {
 
     List<AccountTransactions> findByCustomerIdOrderByTransactionDtDesc(int customerId);
 }

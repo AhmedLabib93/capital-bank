@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,7 +24,7 @@ public class Accounts {
 
     @Id
     @Column(name="account_number")
-    private long accountNumber;
+    private int accountNumber;
 
     @Column(name="account_type")
     private String accountType;
@@ -31,6 +33,6 @@ public class Accounts {
     private String branchAddress;
 
     @Column(name = "create_dt")
-    private String createDt;
+    private Date createDt;
 
 }

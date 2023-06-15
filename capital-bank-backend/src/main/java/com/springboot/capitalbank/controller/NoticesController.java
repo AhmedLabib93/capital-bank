@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RestController
-@RequestMapping("capitalbank/v1")
+@RequestMapping("capitalbank/notices")
 public class NoticesController {
     @Autowired
     private NoticeService noticeService;
 
-    @GetMapping("/notices")
+    @GetMapping
     public ResponseEntity<List<Notice>> getNotices() {
         List<Notice> notices = noticeService.getNotices();
         return ResponseEntity.ok()

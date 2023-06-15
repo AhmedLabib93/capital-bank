@@ -1,37 +1,49 @@
 package com.springboot.capitalbank.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.sql.Date;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "customer_id")
-    private long id;
+    private int id;
 
-    @Column(unique = true, nullable = false, columnDefinition = "TEXT", length = 255)
+    private String name;
+
     private String email;
 
+    @Column(name = "mobile_number")
+    private String mobileNumber;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(nullable = false, columnDefinition = "TEXT", length = 255)
     private String password;
 
-    @Column(nullable = false, columnDefinition = "TEXT", length = 255)
     private String role;
 
+    @CreationTimestamp
     @Column(name = "create_dt")
-    private String createDt;
+    private Date createDt;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    private Set<Authority> authorities;
 }

@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("capitalbank/v1")
+@RequestMapping("capitalbank/v1/contact")
 public class ContactController {
 
     @Autowired
     private ContactService contactService;
 
-    @PostMapping("/contact")
+    @PostMapping
     public Contact saveContactInquiryDetails(@RequestBody Contact contact) {
         return contactService.saveContactInquiryDetails(contact);
     }

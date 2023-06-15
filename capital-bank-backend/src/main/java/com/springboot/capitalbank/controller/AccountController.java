@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("capitalbank/v1")
+@RequestMapping("capitalbank/v1/myAccount")
 public class AccountController {
 
     @Autowired
     private AccountsService accountsService;
 
-    @GetMapping("/myAccount/{id}")
+    @GetMapping
     public Accounts getAccountDetails(@RequestParam int id) {
         return accountsService.getAccountDetails(id);
     }

@@ -17,7 +17,6 @@ public class ContactServiceImpl implements ContactService {
 
     public Contact saveContactInquiryDetails(Contact contact) {
         contact.setContactId(getServiceReqNumber());
-        contact.setCreateDt(new Date(System.currentTimeMillis()));
         Contact savedContact = contactRepository.save(contact);
         return savedContact;
     }

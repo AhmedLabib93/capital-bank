@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("capitalbank/v1")
+@RequestMapping("capitalbank/v1/myLoans")
 public class LoansController {
 
     @Autowired
     private LoanService loanService;
 
-    @GetMapping("/myLoans")
+    @GetMapping("/{id}")
     public List<Loans> getLoanDetails(@RequestParam int id) {
         List<Loans> loans = loanService.getLoanDetails(id);
         return loans;

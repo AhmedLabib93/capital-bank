@@ -24,7 +24,7 @@ public class AccountTransactions {
     private String transactionId;
 
     @Column(name = "account_number")
-    private long accountNumber;
+    private int accountNumber;
 
     @Column(name = "customer_id")
     private int customerId;
